@@ -27,26 +27,13 @@ public class LottoGameMain {
                 System.out.println(e.getMessage());
             }
         }
+        LottoTicket playerTicket = new LottoTicket(playerNumbers);
+        System.out.println("플레이어의 로또 번호: " + playerTicket);
 
-        while (autoNumberList.size() < LOTTO_SIZE) {
-            int input = random.nextInt(MAX_NUMBER - MIN_NUMBER) + MIN_NUMBER;
-            if (!autoNumberList.contains(input)) {
-                autoNumberList.add(input);
-            }
-        }
-        Collections.sort(autoNumberList);
-        System.out.println("로또 당첨 숫자: " + autoNumberList);
+        LottoTicket winningTicket = game.generateWinningTicket();
+        System.out.println("당첨 로또 번호: " + winningTicket);
 
-        winningNumberList.retainAll(autoNumberList);
-        System.out.println("일치한 숫자의 개수: " + winningNumberList.size());
-
-    }
-
-    private static boolean validate(int input) {
-        if (input < MIN_NUMBER || input > MAX_NUMBER) {
-            System.out.println(REQUEST_NUMBER);
-            return false;
-        }
-        return true;
+        int matchCount = game.checkWinningTicket(playerTicket, winningTicket);
+        System.out.println("일치한 번호의 개수: " + matchCount);
     }
 }

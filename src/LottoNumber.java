@@ -18,4 +18,9 @@ public class LottoNumber {
             throw new IllegalArgumentException("로또 번호는 1부터 45사이의 숫자를 입력해주세요.");
         }
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(number);
+    }
 }
