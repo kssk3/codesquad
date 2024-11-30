@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class LottoTicket {
     private static final int TICKET_SIZE = 6;
@@ -32,6 +33,8 @@ public class LottoTicket {
 
     @Override
     public String toString() {
-        return numbers.toString();
+        return numbers.stream()
+                .map(LottoNumber::toString)
+                .collect(Collectors.joining(", "));
     }
 }
