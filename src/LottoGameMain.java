@@ -22,6 +22,8 @@ public class LottoGameMain {
     }
 
     private static void validate(int input) {
-
+        if (input < MIN_NUMBER || input > MAX_NUMBER) {
+            System.out.println(REQUEST_NUMBER);
+        }
     }
 }
