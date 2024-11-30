@@ -23,6 +23,15 @@ public class LottoGame {
         return new LottoTicket(winningNumbers);
     }
 
+    public LottoNumber generateBonusNumber(LottoTicket winningTicket) {
+        LottoNumber bonusNumber;
+        do {
+            int randomNumber = random.nextInt(MAX_NUMBER) + 1;
+            bonusNumber = new LottoNumber(randomNumber);
+        } while (winningTicket.getNumbers().contains(bonusNumber));
+        return bonusNumber;
+    }
+
     public int checkWinningTicket(LottoTicket playerTicket, LottoTicket winningTicket) {
         return (int) playerTicket.getNumbers().stream()
                 .filter(number -> winningTicket.getNumbers().stream()
