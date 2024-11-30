@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -20,29 +22,32 @@ public class LottoGameMain {
 
         while (numberList.size() < LOTTO_SIZE) {
             int input = scanner.nextInt();
-            validate(input);
-            if (!numberList.contains(input)) {
-                numberList.add(input);
-            } else {
-                System.out.println("이미 같은" + input + "이 있습니다. 다른 번호를 입력해주세요.");
+            if (validate(input)) {
+                if (!numberList.contains(input)) {
+                    numberList.add(input);
+                } else {
+                    System.out.println("이미 같은" + input + "이 있습니다. 다른 번호를 입력해주세요.");
+                }
             }
         }
+        Collections.sort(numberList);
         System.out.println(numberList);
 
         while (autoNumberList.size() < LOTTO_SIZE) {
             int input = random.nextInt(MAX_NUMBER - MIN_NUMBER) + MIN_NUMBER;
             if (!autoNumberList.contains(input)) {
                 autoNumberList.add(input);
-            } else {
-                System.out.println("이미 같은" + input + "이 있습니다. 다른 번호를 입력해주세요.");
             }
         }
+        Collections.sort(autoNumberList);
         System.out.println(autoNumberList);
     }
 
-    private static void validate(int input) {
+    private static boolean validate(int input) {
         if (input < MIN_NUMBER || input > MAX_NUMBER) {
             System.out.println(REQUEST_NUMBER);
+            return false;
         }
+        return true;
     }
 }
