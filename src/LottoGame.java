@@ -23,5 +23,10 @@ public class LottoGame {
         return new LottoTicket(winningNumbers);
     }
 
+    public int checkWinningTicket(LottoTicket playerTicket, LottoTicket winningTicket) {
+        return (int) playerTicket.getNumbers().stream().filter(number -> winningTicket.getNumbers().contains(number))
+                .count();
+    }
+
 
 }
