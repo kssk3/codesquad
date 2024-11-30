@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -15,6 +14,8 @@ public class LottoGameMain {
     public static void main(String[] args) {
         List<Integer> numberList = new ArrayList<>();
         List<Integer> autoNumberList = new ArrayList<>();
+        List<Integer> winningNumberList = new ArrayList<>(numberList);
+
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
 
@@ -31,7 +32,7 @@ public class LottoGameMain {
             }
         }
         Collections.sort(numberList);
-        System.out.println(numberList);
+        System.out.println("플레이어의 숫자:" + numberList);
 
         while (autoNumberList.size() < LOTTO_SIZE) {
             int input = random.nextInt(MAX_NUMBER - MIN_NUMBER) + MIN_NUMBER;
@@ -40,7 +41,11 @@ public class LottoGameMain {
             }
         }
         Collections.sort(autoNumberList);
-        System.out.println(autoNumberList);
+        System.out.println("로또 당첨 숫자: " + autoNumberList);
+
+        winningNumberList.retainAll(autoNumberList);
+        System.out.println("일치한 숫자의 개수: " + winningNumberList.size());
+
     }
 
     private static boolean validate(int input) {
