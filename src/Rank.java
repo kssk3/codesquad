@@ -16,7 +16,7 @@ public enum Rank {
         this.description = description;
     }
 
-    public static Rank getRank(int matchCount, boolean matchBonus, String description) {
+    public static Rank getRank(int matchCount, boolean matchBonus) {
         if (matchCount == 6) return FIRST;
         if (matchCount == 5 && matchBonus) return SECOND;
         if (matchCount == 5) return THIRD;

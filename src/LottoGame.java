@@ -30,6 +30,7 @@ public class LottoGame {
             int randomNumber = random.nextInt(MAX_NUMBER) + 1;
             bonusNumber = new LottoNumber(randomNumber);
         } while (winningTicket.getNumbers().contains(bonusNumber));
+        this.bonusNumber = bonusNumber;
         return bonusNumber;
     }
 
@@ -37,11 +38,12 @@ public class LottoGame {
         return bonusNumber;
     }
 
-    public int checkWinningTicket(LottoTicket playerTicket, LottoTicket winningTicket) {
-        return (int) playerTicket.getNumbers().stream()
-                .filter(number -> winningTicket.getNumbers().stream()
-                        .anyMatch(winningNumber -> winningNumber.getNumber() == number.getNumber()))
+    public Rank checkWinningTicket(LottoTicket playerTicket, LottoTicket winningTicket) {
+        int matchCount = (int) playerTicket.getNumbers().stream()
+                .filter(winningTicket.getNumbers()::contains)
                 .count();
+        boolean matchBonus = playerTicket.getNumbers().contains(bonusNumber);
+        return Rank.getRank(matchCount, matchBonus);
     }
 
 }
