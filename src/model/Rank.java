@@ -1,3 +1,5 @@
+package model;
+
 public enum Rank {
     FIRST(6, false, "1등"),
     SECOND(5, true, "2등"),

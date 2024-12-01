@@ -1,3 +1,12 @@
+package controller;
+
+import model.LottoGame;
+import model.LottoNumber;
+import model.LottoTicket;
+import model.Rank;
+import view.InputView;
+import view.OutputView;
+
 public class Controller {
     private LottoGame lottoGame;
     private InputView inputView;

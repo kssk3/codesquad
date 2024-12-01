@@ -1,6 +1,10 @@
+package view;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import model.LottoNumber;
+import model.LottoTicket;
 
 public class InputView {
     private static final int LOTTO_SIZE = 6;

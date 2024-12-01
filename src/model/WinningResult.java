@@ -1,3 +1,5 @@
+package model;
+
 public class WinningResult {
     private final int matchCount;
     private final boolean bonusMatch;

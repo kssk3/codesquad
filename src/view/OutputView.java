@@ -1,3 +1,9 @@
+package view;
+
+import model.LottoNumber;
+import model.LottoTicket;
+import model.Rank;
+
 public class OutputView {
     public void displayMessage(String message) {
         System.out.println(message);
