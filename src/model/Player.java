@@ -19,6 +19,16 @@ public class Player {
         }
     }
 
-    
+    public void addWinnings(int amount) {
+        money += amount;
+    }
+
+    public int getMoney() {
+        return money;
+    }
+
+    public LottoTicket getTicket() {
+        return ticket;
+    }
 
 }
