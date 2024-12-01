@@ -11,4 +11,14 @@ public class Player {
     public boolean canplay() {
         return money >= 1000;
     }
+
+    public void buyTicket(LottoTicket ticket) {
+        if (canplay()) {
+            this.ticket = ticket;
+            money -= 1000;
+        }
+    }
+
+    
+
 }
