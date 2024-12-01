@@ -14,16 +14,4 @@ public class LottoGameMain {
         List<LottoNumber> playerNumbers = new ArrayList<>();
 
         }
-
-        
-        LottoTicket playerTicket = new LottoTicket(playerNumbers);
-        System.out.println("플레이어의 로또 번호: " + playerTicket);
-
-        LottoTicket winningTicket = game.generateWinningTicket();
-        LottoNumber bonusNumber = game.generateBonusNumber(winningTicket);
-        System.out.println("당첨 로또 번호: " + winningTicket + " 보너스 번호: " + bonusNumber);
-
-        int matchCount = game.checkWinningTicket(playerTicket, winningTicket);
-        System.out.println("일치한 번호의 개수: " + matchCount);
-    }
 }
