@@ -14,4 +14,8 @@ public class OutputView {
     public void disPlayMatchCount(int count) {
         System.out.println("일치한 번호의 개수: " + count);
     }
+
+    public void displayRank(Rank rank) {
+        System.out.println("당첨 결과: " + rank.getDescription());
+    }
 }

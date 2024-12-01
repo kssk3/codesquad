@@ -9,16 +9,16 @@ public class Controller {
         this.outputView = new OutputView();
     }
 
-    public void run() {
-        outputView.displayMessage("1~45중 로또 번호를 6개 입력하세요.");
-        LottoTicket playerTicket = inputView.getUserTicket();
-        outputView.displayPlayerTicket(playerTicket);
+        public void run() {
+            outputView.displayMessage("1~45중 로또 번호를 6개 입력하세요.");
+            LottoTicket playerTicket = inputView.getUserTicket();
+            outputView.displayPlayerTicket(playerTicket);
 
-        LottoTicket winningTicket = lottoGame.generateWinningTicket();
-        LottoNumber bonusNumber = lottoGame.generateBonusNumber(winningTicket);
-        outputView.displayWinningTicket(winningTicket, bonusNumber);
+            LottoTicket winningTicket = lottoGame.generateWinningTicket();
+            LottoNumber bonusNumber = lottoGame.generateBonusNumber(winningTicket);
+            outputView.displayWinningTicket(winningTicket, bonusNumber);
 
-        Rank rank = lottoGame.determineRank(playerTicket, winningTicket, bonusNumber);
-        outputView.displayRank(rank);
+            Rank rank = lottoGame.checkWinningTicket(playerTicket, winningTicket);
+            outputView.displayRank(rank);
+        }
     }
-}

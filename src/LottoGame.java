@@ -38,18 +38,12 @@ public class LottoGame {
         return bonusNumber;
     }
 
-    public Rank determineRank(LottoTicket playerTicket, LottoTicket winningTicket, LottoNumber bonusNumber) {
-        long matchCount = 0;
-        boolean matchBonus = false;
-
-        for (LottoNumber number : playerTicket.getNumbers()) {
-            if (winningTicket.getNumbers().contains(number)) {
-                matchCount++;
-            } else if (number.equals(bonusNumber)) {
-                matchBonus = true;
-            }
-        }
-        return Rank.getRank((int)matchCount, matchBonus);
+    public Rank checkWinningTicket(LottoTicket playerTicket, LottoTicket winningTicket) {
+        int matchCount = (int) playerTicket.getNumbers().stream()
+                .filter(winningTicket.getNumbers()::contains)
+                .count();
+        boolean matchBonus = playerTicket.getNumbers().contains(bonusNumber);
+        return Rank.getRank(matchCount, matchBonus);
     }
 
 }
