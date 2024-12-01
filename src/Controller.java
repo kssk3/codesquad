@@ -18,7 +18,8 @@ public class Controller {
             LottoNumber bonusNumber = lottoGame.generateBonusNumber(winningTicket);
             outputView.displayWinningTicket(winningTicket, bonusNumber);
 
-            Rank rank = lottoGame.checkWinningTicket(playerTicket, winningTicket);
-            outputView.displayRank(rank);
+            int matchCount = lottoGame.checkWinningTicket(playerTicket, winningTicket);
+            boolean matchBonus = playerTicket.getNumbers().contains(bonusNumber);
+            Rank rank = Rank.getRank(matchCount, matchBonus);
         }
     }
