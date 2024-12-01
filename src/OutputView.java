@@ -11,11 +11,7 @@ public class OutputView {
         System.out.println("당첨 로또 번호: " + ticket + " 보너스 번호 " + bonusNumber);
     }
 
-    public void disPlayMatchCount(int count) {
-        System.out.println("일치한 번호의 개수: " + count);
-    }
-
-    public void displayRank(Rank rank) {
-        System.out.println("당첨 결과: " + rank.getDescription());
+    public void displayResult(int matchCount, Rank rank) {
+        System.out.println("결과: " + matchCount + "개 일치. " + rank.getDescription());
     }
 }
