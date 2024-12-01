@@ -6,6 +6,7 @@ public class LottoGame {
     private static final int MAX_NUMBER = 45;
     private static final int TICKET_SIZE = 6;
     private final Random random;
+    private LottoNumber bonusNumber;
 
     public LottoGame() {
         this.random = new Random();
@@ -29,6 +30,10 @@ public class LottoGame {
             int randomNumber = random.nextInt(MAX_NUMBER) + 1;
             bonusNumber = new LottoNumber(randomNumber);
         } while (winningTicket.getNumbers().contains(bonusNumber));
+        return bonusNumber;
+    }
+
+    public LottoNumber getBonusNumber() {
         return bonusNumber;
     }
 
