@@ -7,8 +7,8 @@ public class OutputView {
         System.out.println("플레이어번호: " + ticket);
     }
 
-    public void displayWinningTicket(LottoTicket ticket) {
-        System.out.println("당첨 로또 번호: " + ticket);
+    public void displayWinningTicket(LottoTicket ticket, LottoNumber bonusNumber) {
+        System.out.println("당첨 로또 번호: " + ticket + " 보너스 번호 " + bonusNumber);
     }
 
     public void disPlayMatchCount(int count) {
