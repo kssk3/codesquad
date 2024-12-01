@@ -40,6 +40,15 @@ public class LottoGame {
         return bonusNumber;
     }
 
+    public Rank playRound(Player player){
+        LottoTicket winningTicket = generateWinningTicket();
+        LottoNumber bonusNumber = generateBonusNumber(winningTicket);
+
+        int matchCount = checkWinningTicket(player.getTicket(), winningTicket);
+        boolean matchBonus = player.getTicket().getNumbers().contains(bonusNumber);
+        return Rank.getRank(matchCount, matchBonus);
+    }
+
     public int checkWinningTicket(LottoTicket playerTicket, LottoTicket winningTicket) {
         return (int) playerTicket.getNumbers().stream()
                 .filter(winningTicket.getNumbers()::contains)
