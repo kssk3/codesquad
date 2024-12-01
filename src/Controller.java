@@ -17,5 +17,8 @@ public class Controller {
         LottoTicket winningTicket = lottoGame.generateWinningTicket();
         LottoNumber bonusNumber = lottoGame.generateBonusNumber(winningTicket);
         outputView.displayWinningTicket(winningTicket, bonusNumber);
+
+        Rank rank = lottoGame.determineRank(playerTicket, winningTicket, bonusNumber);
+        outputView.displayRank(rank);
     }
 }

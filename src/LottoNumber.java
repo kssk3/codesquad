@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class LottoNumber {
     private static final int MIN_NUMBER = 1;
     private static final int MAX_NUMBER = 45;
@@ -17,6 +19,23 @@ public class LottoNumber {
         if (input < MIN_NUMBER || input > MAX_NUMBER) {
             throw new IllegalArgumentException("로또 번호는 1부터 45사이의 숫자를 입력해주세요.");
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        LottoNumber that = (LottoNumber) o;
+        return number == that.number;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(number);
     }
 
     @Override
