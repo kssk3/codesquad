@@ -38,12 +38,10 @@ public class LottoGame {
         return bonusNumber;
     }
 
-    public Rank checkWinningTicket(LottoTicket playerTicket, LottoTicket winningTicket) {
-        int matchCount = (int) playerTicket.getNumbers().stream()
+    public int checkWinningTicket(LottoTicket playerTicket, LottoTicket winningTicket) {
+        return (int) playerTicket.getNumbers().stream()
                 .filter(winningTicket.getNumbers()::contains)
                 .count();
-        boolean matchBonus = playerTicket.getNumbers().contains(bonusNumber);
-        return Rank.getRank(matchCount, matchBonus);
     }
 
 }
