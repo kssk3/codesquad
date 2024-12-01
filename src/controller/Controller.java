@@ -31,5 +31,7 @@ public class Controller {
             boolean matchBonus = playerTicket.getNumbers().contains(bonusNumber);
             Rank rank = Rank.getRank(matchCount, matchBonus);
             outputView.displayResult(matchCount, rank);
+            System.out.println("test");
+
         }
     }
